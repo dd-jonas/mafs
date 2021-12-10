@@ -9,6 +9,7 @@ const identity = vec.matrixBuilder().get()
 export interface UseMovablePoints {
   points: Vector2[]
   elements: React.ReactElement[]
+  setPoints: (...points: Vector2[]) => void
   addPoints: (...points: Vector2[]) => void
   updatePoint: (newPoint: Vector2, index: number) => void
   deletePoints: (n: number) => void
@@ -16,6 +17,10 @@ export interface UseMovablePoints {
 
 function useMovablePoints(initialPoints: Vector2[]): UseMovablePoints {
   const [points, setPoints] = useState<Vector2[]>(initialPoints)
+
+  const updatePoints = (...points: Vector2[]) => {
+    setPoints(points)
+  }
 
   const addPoints = (...points: Vector2[]) => {
     setPoints((oldPoints) => [...oldPoints, ...points])
@@ -50,6 +55,7 @@ function useMovablePoints(initialPoints: Vector2[]): UseMovablePoints {
   return {
     points,
     elements,
+    setPoints: updatePoints,
     addPoints,
     updatePoint,
     deletePoints,
