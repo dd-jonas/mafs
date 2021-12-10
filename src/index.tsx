@@ -44,6 +44,7 @@ export { theme as Theme } from "./display/Theme"
 export type { Filled, Stroked } from "./display/Theme"
 
 export { default as useMovablePoint } from "./interaction/useMovablePoint"
+export { default as useMovablePoints } from "./interaction/useMovablePoints"
 export type {
   ConstraintFunction,
   UseMovablePoint,

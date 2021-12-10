@@ -4,6 +4,8 @@ import { Guide } from "guide"
 
 import CodeAndExample from "components/CodeAndExample"
 
+import MyMovablePoints from "guide-examples/display/MyMovablePoints"
+import MyMovablePointsSource from "!raw-loader!guide-examples/display/MyMovablePoints"
 import PointsAlongFunction from "guide-examples/display/PointsAlongFunction"
 import PointsAlongFunctionSource from "!raw-loader!guide-examples/display/PointsAlongFunction"
 import SnapPoint from "guide-examples/SnapPoint"
@@ -18,6 +20,10 @@ export const frontmatter: Guide = {
 
 const Stopwatch: React.VFC = () => (
   <GuidesLayout title={frontmatter.title}>
+    <p>My movable points hook</p>
+
+    <CodeAndExample component={<MyMovablePoints />} source={MyMovablePointsSource} />
+
     <p>
       Movable points can be dragged around the coordinate plane, or moved via the keyboard. They're
       the cornerstone of lots of interactions.
